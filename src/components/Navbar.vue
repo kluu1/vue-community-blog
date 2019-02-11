@@ -24,9 +24,9 @@
           <li class="nav-item" v-if="!authUser">
             <router-link class="nav-link" to="/signup">Signup</router-link>
           </li>
-          <li class="nav-item" v-if="authUser">
+          <!-- <li class="nav-item" v-if="authUser">
             <router-link class="nav-link" to="/articles/create">Create New Article</router-link>
-          </li>
+          </li>-->
           <li class="nav-item dropdown" v-if="authUser">
             <a
               class="nav-link dropdown-toggle"
@@ -38,7 +38,7 @@
               aria-expanded="false"
             >Hey {{ authUser.name }}</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" @click="logout()" href="#">Logout</a>
+              <a class="dropdown-item" href="#">Logout</a>
             </div>
           </li>
         </ul>
@@ -48,18 +48,18 @@
 </template>
 
 // <script>
-// export default {
-//   computed: {
-//     authUser() {
-//       return this.$root.auth.user;
-//     }
-//   },
-//   methods: {
-//     logout() {
-//       localStorage.removeItem("auth");
-//       this.$root.auth = {};
-//       this.$noty.success("Succeessfully logged out.");
-//     }
-//   }
-// };
+export default {
+  computed: {
+    authUser() {
+      return this.$root.auth.user;
+    }
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem("auth");
+      this.$root.auth = {};
+      this.$noty.success("Succeessfully logged out.");
+    }
+  }
+};
 </script>
