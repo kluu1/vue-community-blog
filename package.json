@@ -18,6 +18,27 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0",
     "@vue/cli-service": "^3.0.0",
-    "vue-template-compiler": "^2.5.17"
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.13.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-vue": "^5.1.0",
+    "prettier": "^1.16.4",
+    "vue-template-compiler": "^2.6.5"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/recommended",
+      "eslint:recommended",
+      "plugin:prettier/recommended",
+      "prettier/vue"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
   }
 }

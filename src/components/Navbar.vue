@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <router-link class="navbar-brand" to="/">
-        <img src="../assets/logo.png" width="30px" height="30px" alt>
+        <img src="../assets/logo.png" width="30px" height="30px" alt />
       </router-link>
       <button
         class="navbar-toggler"
@@ -15,30 +15,30 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div id="navbarSupportedContent" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item" v-if="!authUser">
+          <li v-if="!authUser" class="nav-item">
             <router-link class="nav-link" to="/login">Login</router-link>
           </li>
-          <li class="nav-item" v-if="!authUser">
+          <li v-if="!authUser" class="nav-item">
             <router-link class="nav-link" to="/signup">Signup</router-link>
           </li>
           <!-- <li class="nav-item" v-if="authUser">
             <router-link class="nav-link" to="/articles/create">Create New Article</router-link>
           </li>-->
-          <li class="nav-item dropdown" v-if="authUser">
+          <li v-if="authUser" class="nav-item dropdown">
             <a
+              id="navbarDropdown"
               class="nav-link dropdown-toggle"
               href="#"
-              id="navbarDropdown"
               role="button"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
-            >Hey {{ authUser.name }}</a>
+              >{{ authUser.name }}</a
+            >
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Logout</a>
+              <a class="dropdown-item" href="#" @click="logout()">Logout</a>
             </div>
           </li>
         </ul>
@@ -47,7 +47,8 @@
   </nav>
 </template>
 
-// <script>
+//
+<script>
 export default {
   computed: {
     authUser() {
