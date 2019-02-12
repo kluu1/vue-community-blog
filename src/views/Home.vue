@@ -20,7 +20,6 @@ export default {
   components: {
     Article
   },
-
   data() {
     return {
       articles: {}

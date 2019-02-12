@@ -1,25 +1,30 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import Home from './views/Home.vue';
-import Login from './views/Login.vue';
-import Signup from './views/Signup.vue';
+import Vue from "vue";
+import Router from "vue-router";
+import Home from "./views/Home.vue";
+import Login from "./views/Login.vue";
+import Signup from "./views/Signup.vue";
+import Article from "./views/Article";
 
 Vue.use(Router);
 
 const router = new Router({
-  mode: 'history',
+  mode: "history",
   routes: [
     {
-      path: '/login',
+      path: "/login",
       component: Login
     },
     {
-      path: '/signup',
+      path: "/signup",
       component: Signup
     },
     {
-      path: '/',
+      path: "/",
       component: Home
+    },
+    {
+      path: "/article/:id",
+      component: Article
     }
   ]
 });
