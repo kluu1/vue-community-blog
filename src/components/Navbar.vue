@@ -23,9 +23,11 @@
           <li v-if="!authUser" class="nav-item">
             <router-link class="nav-link" to="/signup">Signup</router-link>
           </li>
-          <!-- <li class="nav-item" v-if="authUser">
-            <router-link class="nav-link" to="/articles/create">Create New Article</router-link>
-          </li>-->
+          <li v-if="authUser" class="nav-item">
+            <router-link class="nav-link" to="/articles/create"
+              >Create New Article</router-link
+            >
+          </li>
           <li v-if="authUser" class="nav-item dropdown">
             <a
               id="navbarDropdown"

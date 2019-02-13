@@ -4,6 +4,7 @@ import Home from "./views/Home.vue";
 import Login from "./views/Login.vue";
 import Signup from "./views/Signup.vue";
 import Article from "./views/Article";
+import CreateArticle from "./views/CreateArticle.vue";
 
 Vue.use(Router);
 
@@ -21,6 +22,10 @@ const router = new Router({
     {
       path: "/",
       component: Home
+    },
+    {
+      path: "/articles/create",
+      component: CreateArticle
     },
     {
       path: "/article/:id",

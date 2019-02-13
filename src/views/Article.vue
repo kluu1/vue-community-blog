@@ -12,6 +12,13 @@
           <div class="card-body">
             <h1 class="card-title text-center my-3">{{ article.title }}</h1>
             <div class="article-content" v-html="article.content"></div>
+            <div class="comments my-4">
+              <vue-disqus
+                shortname="community-blog"
+                :identifier="article.slug"
+                :url="url"
+              ></vue-disqus>
+            </div>
           </div>
         </div>
         <div v-else class="loader text-center">
@@ -29,7 +36,8 @@ export default {
   data() {
     return {
       article: {},
-      loading: true
+      loading: true,
+      url: window.location.href
     };
   },
   mounted() {
