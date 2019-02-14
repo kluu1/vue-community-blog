@@ -71,7 +71,7 @@
               @click="registerUser()"
             >
               <i v-if="loading" class="fas fa-spin fa-spinner"></i>
-              {{ loading ? "" : "Signup" }}
+              {{ loading ? '' : 'Signup' }}
             </button>
           </div>
         </div>
@@ -81,23 +81,23 @@
 </template>
 
 <script>
-import Axios from "axios";
-import config from "@/config";
+import Axios from 'axios';
+import config from '@/config';
 
 export default {
   beforeRouteEnter(to, from, next) {
     next();
-    if (localStorage.getItem("auth")) {
-      return next({ path: "/" });
+    if (localStorage.getItem('auth')) {
+      return next({ path: '/' });
     }
     next();
   },
 
   data() {
     return {
-      name: "",
-      email: "",
-      password: "",
+      name: '',
+      email: '',
+      password: '',
       errors: {},
       submitted: false,
       loading: false
@@ -105,6 +105,7 @@ export default {
   },
 
   methods: {
+    // method to handle user registration
     registerUser() {
       this.loading = true;
       Axios.post(`${config.apiUrl}/auth/register`, {
@@ -115,14 +116,18 @@ export default {
         .then(response => {
           this.loading = false;
           this.submitted = true;
+          // destructure data from response
           const { data } = response.data;
-          localStorage.setItem("auth", JSON.stringify(data));
+          // set the auth data into local storage
+          localStorage.setItem('auth', JSON.stringify(data));
+          // set root auth data to user data
           this.$root.auth = data;
-          this.$noty.success("Successfully registered.");
-          this.$router.push("/");
+          this.$noty.success('Successfully registered.');
+          this.$router.push('/');
         })
+        // handle registration error
         .catch(({ response }) => {
-          this.$noty.error("Oops! Something went wrong.");
+          this.$noty.error('Oops! Something went wrong.');
           this.loading = false;
           this.submitted = true;
           this.errors = response.data;

@@ -58,10 +58,13 @@ export default {
     }
   },
   methods: {
+    // method to logout
     logout() {
-      localStorage.removeItem("auth");
+      // remove auth token from local storage
+      localStorage.removeItem('auth');
+      // set auth data to empty object
       this.$root.auth = {};
-      this.$noty.success("Succeessfully logged out.");
+      this.$noty.success('Succeessfully logged out.');
     }
   }
 };

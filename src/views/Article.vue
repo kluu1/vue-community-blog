@@ -30,8 +30,9 @@
 </template>
 
 <script>
-import Axios from "axios";
-import config from "@/config";
+import Axios from 'axios';
+import config from '@/config';
+
 export default {
   data() {
     return {
@@ -40,10 +41,14 @@ export default {
       url: window.location.href
     };
   },
+
+  // on mount, get the article
   mounted() {
     this.getArticle();
   },
+
   methods: {
+    // method to get a single article
     getArticle() {
       Axios.get(`${config.apiUrl}/article/${this.$route.params.id}`).then(
         response => {

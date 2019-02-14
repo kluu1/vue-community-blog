@@ -45,7 +45,7 @@
               @click="loginUser"
             >
               <i v-if="loading" class="fas fa-spin fa-spinner"></i>
-              {{ loading ? "" : "Login" }}
+              {{ loading ? '' : 'Login' }}
             </button>
           </div>
         </div>
@@ -55,27 +55,29 @@
 </template>
 
 <script>
-import Axios from "axios";
-import config from "@/config";
+import Axios from 'axios';
+import config from '@/config';
 
 export default {
   beforeRouteEnter(to, from, next) {
     next();
-    if (localStorage.getItem("auth")) {
-      return next({ path: "/" });
+    if (localStorage.getItem('auth')) {
+      return next({ path: '/' });
     }
     next();
   },
 
   data() {
     return {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       errors: {},
       loading: false
     };
   },
+
   methods: {
+    // method to handle user login
     loginUser() {
       this.loading = true;
       Axios.post(`${config.apiUrl}/auth/login`, {
@@ -84,17 +86,23 @@ export default {
       })
         .then(response => {
           this.loading = false;
-          this.$root.auth = response.data.data;
-          localStorage.setItem("auth", JSON.stringify(response.data.data));
-          this.$noty.success("Successfully logged in.");
-          this.$router.push("/");
+          // set the root auth data to response auth data
+          const { data } = response.data;
+          this.$root.auth = data;
+          // store the auth data into local storage
+          localStorage.setItem('auth', JSON.stringify(data));
+          this.$noty.success('Successfully logged in.');
+          // redirect user to the home page
+          this.$router.push('/');
         })
+        // handle user login error
         .catch(({ response }) => {
           this.loading = false;
-          this.$noty.error("Oops something went wrong!");
+          this.$noty.error('Oops something went wrong!');
+          // if response status is 401, return custom error message
           if (response.status === 401) {
             this.errors = {
-              email: ["These credentials do not match our records."]
+              email: ['These credentials do not match our records.']
             };
           } else {
             this.errors = response.data;
