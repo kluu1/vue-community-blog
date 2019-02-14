@@ -1,16 +1,16 @@
 <template>
   <div>
-    <div class="d-flex mt-4 justify-content-between">
+    <div class="d-flex mt-4 justify-content-center">
       <button
         :disabled="articles.prev_page_url === null"
-        class="btn btn-warning"
+        class="btn btn-primary mr-5"
         @click="getPrevArticles()"
       >
         Prev Page
       </button>
       <button
         :disabled="articles.next_page_url === null"
-        class="btn btn-warning"
+        class="btn btn-primary ml-5"
         @click="getNextArticles()"
       >
         Next Page

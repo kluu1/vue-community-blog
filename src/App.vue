@@ -20,11 +20,11 @@ export default {
 
 <style>
 * {
-  font-family: poppins;
+  font-family: 'Arimo', sans-serif;
   border-radius: 0px !important;
 }
 
 body {
-  background-color: #f5f3ef;
+  background-image: url('./assets/stripes-light.png');
 }
 </style>

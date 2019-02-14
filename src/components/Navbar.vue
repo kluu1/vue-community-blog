@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
       <router-link class="navbar-brand" to="/">
-        <img src="../assets/logo.png" width="30px" height="30px" alt />
+        <div>Community Blog</div>
       </router-link>
       <button
         class="navbar-toggler"
@@ -69,3 +69,19 @@ export default {
   }
 };
 </script>
+
+<style>
+.navbar {
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+.nav-link:hover {
+  font-weight: bold;
+}
+</style>
