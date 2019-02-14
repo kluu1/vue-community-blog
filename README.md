@@ -3,7 +3,7 @@
 Vue Community Blog is a blog site built with Vue.js, Disqus, Picture Input, Wysiwyg, and Noty.
 
 ## View Demo
-https://pedantic-bardeen-d56b11.netlify.com/articles/create
+https://pedantic-bardeen-d56b11.netlify.com/
 
 ## Features
 * Users can register and log into the blog site
