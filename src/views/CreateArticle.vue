@@ -33,7 +33,7 @@
                 @click="createArticle()"
               >
                 <i v-if="loading" class="fas fa-spin fa-spinner"></i>
-                {{ loading ? '' : 'Create Category' }}
+                {{ loading ? '' : 'Create New Article' }}
               </button>
             </div>
           </div>
